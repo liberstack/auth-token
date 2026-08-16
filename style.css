@@ -1,0 +1,624 @@
+/* ============================================
+   SKILL VAULT - MAIN CSS
+   Layout + Componentes + Markdown (unificado)
+   ============================================ */
+
+/* ============================================
+   1. RESET GLOBAL
+   ============================================ */
+
+* {
+     box-sizing: border-box;
+}
+
+/* ============================================
+   2. VARIÁVEIS CSS
+   ============================================ */
+
+:root {
+     --bg: #0f172a;
+     --card: #111827;
+     --text: #e5e7eb;
+     --muted: #9ca3af;
+     --accent: #38bdf8;
+     --success: #22c55e;
+     --danger: #ef4444;
+     --gradient-start: #1e293b;
+     --gradient-end: #334155;
+     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+     --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Consolas, monospace;
+}
+
+/* ============================================
+   3. BASE - BODY
+   ============================================ */
+
+body {
+     margin: 0;
+     font-family: var(--font-sans);
+     background: linear-gradient(135deg, #020617, #020617);
+     color: var(--text);
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 20px;
+}
+
+/* ============================================
+   4. ESTRUTURA - LAYOUT CONTAINERS
+   ============================================ */
+
+.card {
+     width: 100%;
+     max-width: 1000px;
+     background: var(--card);
+     border-radius: 16px;
+     padding: 32px;
+     box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+     transition: max-width 0.2s ease;
+}
+
+/* Quando a wiki está visível, o cartão pode se expandir para caber a sidebar */
+.card:has(#curso[style*="display: block"]) {
+     max-width: 1200px;
+}
+
+.content {
+     display: none;
+}
+
+/* ============================================
+   5. ANIMAÇÕES
+   ============================================ */
+
+@keyframes fadeIn {
+     from {
+          opacity: 0;
+          transform: translateY(10px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+@keyframes pulse {
+
+     0%,
+     100% {
+          opacity: 0.6;
+     }
+
+     50% {
+          opacity: 1;
+     }
+}
+
+/* ============================================
+   6. TIPOGRAFIA - TÍTULOS
+   ============================================ */
+
+.card>h1,
+#login>h1,
+#curso>h1 {
+     margin-top: 0;
+     font-size: 2rem;
+     margin-bottom: 8px;
+     background: linear-gradient(135deg, var(--accent), #06b6d4);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     background-clip: text;
+}
+
+.subtitle {
+     color: var(--muted);
+     margin-bottom: 24px;
+     line-height: 1.6;
+}
+
+/* ============================================
+   7. FORMULÁRIOS - INPUTS
+   ============================================ */
+
+input {
+     width: 100%;
+     padding: 14px;
+     border-radius: 10px;
+     border: 2px solid #334155;
+     outline: none;
+     font-size: 1rem;
+     font-family: var(--font-sans);
+     margin-bottom: 12px;
+     background: #1e293b;
+     color: var(--text);
+     transition: border-color 0.3s ease;
+}
+
+input:focus {
+     border-color: var(--accent);
+}
+
+/* ============================================
+   8. BOTÕES
+   ============================================ */
+
+button {
+     width: 100%;
+     padding: 14px;
+     border-radius: 10px;
+     border: none;
+     background: linear-gradient(135deg, var(--accent), #06b6d4);
+     color: #020617;
+     font-size: 1rem;
+     font-family: var(--font-sans);
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s ease;
+}
+
+button:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+}
+
+button:active {
+     transform: translateY(0);
+}
+
+button:disabled {
+     opacity: 0.6;
+     cursor: not-allowed;
+     transform: none;
+}
+
+/* ============================================
+   9. MENSAGENS E ESTADOS
+   ============================================ */
+
+.error {
+     color: var(--danger);
+     margin-top: 12px;
+     display: none;
+     padding: 12px;
+     background: rgba(239, 68, 68, 0.1);
+     border-radius: 8px;
+     border-left: 4px solid var(--danger);
+}
+
+.success {
+     color: var(--success);
+}
+
+.loading {
+     text-align: center;
+     padding: 60px 20px;
+     color: var(--muted);
+     font-size: 1.1rem;
+     animation: pulse 1.5s ease-in-out infinite;
+}
+
+.empty-state {
+     color: var(--muted);
+     font-size: 0.95rem;
+     text-align: center;
+     padding: 24px 0;
+     margin: 0;
+}
+
+/* ============================================
+   10. FOOTER
+   ============================================ */
+
+.footer {
+     margin-top: 40px;
+     font-size: .85rem;
+     color: var(--muted);
+     text-align: center;
+     padding-top: 20px;
+     border-top: 1px solid #334155;
+}
+
+.footer p {
+     margin: 8px 0;
+}
+
+.footer a {
+     color: var(--accent);
+     text-decoration: none;
+     transition: color 0.2s;
+}
+
+.footer a:hover {
+     color: #06b6d4;
+}
+
+/* ============================================
+   11. MARKDOWN ARTICLE (conteúdo renderizado)
+   ============================================ */
+
+.md-body {
+     color: var(--text);
+     font-size: 1.05rem;
+     line-height: 1.8;
+     max-width: 700px;
+     animation: fadeIn 0.3s ease-in-out;
+}
+
+.md-body p {
+     margin: 0 0 1.2em;
+}
+
+.md-body ul,
+.md-body ol {
+     margin: 0 0 1.2em;
+     padding-left: 1.4em;
+}
+
+.md-body li {
+     margin-bottom: 0.4em;
+}
+
+.md-body h1,
+.md-body h2,
+.md-body h3 {
+     line-height: 1.3;
+     margin-top: 1.7em;
+     margin-bottom: 0.6em;
+     background: linear-gradient(135deg, var(--accent), #06b6d4);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     background-clip: text;
+}
+
+.md-body h1:first-child,
+.md-body h2:first-child,
+.md-body h3:first-child {
+     margin-top: 0;
+}
+
+.md-body a {
+     color: var(--accent);
+     text-decoration: underline;
+}
+
+.md-body a:hover {
+     color: #06b6d4;
+}
+
+.md-body code {
+     background: #1e293b;
+     border: 1px solid #334155;
+     border-radius: 4px;
+     padding: 2px 6px;
+     font-size: 0.9em;
+     font-family: var(--font-mono);
+     color: #7dd3fc;
+}
+
+.md-body pre {
+     background: #1e293b;
+     border: 1px solid #334155;
+     border-radius: 10px;
+     padding: 20px;
+     overflow-x: auto;
+}
+
+.md-body pre code {
+     background: none;
+     border: none;
+     padding: 0;
+     font-size: 0.88em;
+     font-family: var(--font-mono);
+     color: #e2e8f0;
+}
+
+.md-body blockquote {
+     border-left: 4px solid var(--accent);
+     margin-left: 0;
+     padding-left: 16px;
+     color: var(--muted);
+}
+
+.md-body hr {
+     border: none;
+     border-top: 1px solid #334155;
+     margin: 32px 0;
+}
+
+.md-body table {
+     width: 100%;
+     border-collapse: collapse;
+}
+
+.md-body th,
+.md-body td {
+     border: 1px solid #334155;
+     padding: 10px 14px;
+     text-align: left;
+}
+
+.md-body th {
+     background: #1e293b;
+     color: var(--accent);
+}
+
+/* ============================================
+   12. WIKI — TOPBAR
+   ============================================ */
+
+.wiki-topbar {
+     display: flex;
+     align-items: center;
+     gap: 16px;
+     margin-bottom: 24px;
+}
+
+.wiki-logo {
+     width: 56px;
+     height: 56px;
+     border-radius: 50%;
+     flex-shrink: 0;
+}
+
+.wiki-topbar .subtitle {
+     margin-bottom: 0;
+}
+
+/* ============================================
+   13. WIKI — LAYOUT (sidebar + artigo)
+   ============================================ */
+
+.wiki-layout {
+     display: grid;
+     grid-template-columns: 260px 1fr;
+     gap: 28px;
+     align-items: start;
+}
+
+.wiki-sidebar {
+     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+     border: 2px solid #334155;
+     border-radius: 12px;
+     padding: 16px 12px;
+     max-height: 70vh;
+     overflow-y: auto;
+     position: sticky;
+     top: 20px;
+}
+
+.wiki-categoria {
+     margin-bottom: 18px;
+}
+
+.wiki-categoria:last-child {
+     margin-bottom: 0;
+}
+
+.wiki-categoria-titulo {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     font-size: 0.78rem;
+     font-weight: 700;
+     letter-spacing: 0.06em;
+     text-transform: uppercase;
+     color: var(--muted);
+     padding: 6px 10px;
+}
+
+.wiki-folder-icon {
+     font-size: 0.9rem;
+}
+
+.wiki-lista {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     flex-direction: column;
+     gap: 2px;
+}
+
+.wiki-item {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     text-align: left;
+     background: transparent;
+     border: none;
+     border-radius: 8px;
+     padding: 10px 12px;
+     color: var(--text);
+     font-size: 0.92rem;
+     font-family: var(--font-sans);
+     font-weight: 500;
+     cursor: pointer;
+     transition: background 0.2s ease, color 0.2s ease;
+}
+
+.wiki-item:hover {
+     background: rgba(56, 189, 248, 0.12);
+     transform: none;
+     box-shadow: none;
+}
+
+.wiki-item.active {
+     background: var(--accent);
+     color: #020617;
+     font-weight: 700;
+}
+
+.wiki-item-icon {
+     font-size: 0.9rem;
+     flex-shrink: 0;
+}
+
+.wiki-item-label {
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+}
+
+.wiki-article {
+     min-height: 300px;
+}
+
+.wiki-placeholder {
+     color: var(--muted);
+     text-align: center;
+     padding: 80px 20px;
+     border: 2px dashed #334155;
+     border-radius: 12px;
+     font-size: 0.95rem;
+}
+
+/* ============================================
+   13.1 WIKI — SEÇÃO DE DOWNLOADS (zip/pdf/epub)
+   ============================================ */
+
+.downloads-section {
+     margin-top: 32px;
+     padding-top: 24px;
+     border-top: 1px solid #334155;
+}
+
+.downloads-lista {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+     gap: 8px;
+}
+
+.download-item {
+     text-decoration: none;
+     border: 1px solid #334155;
+}
+
+.download-item:hover {
+     border-color: var(--accent);
+}
+
+/* ============================================
+   SKILL VAULT - MEDIA QUERIES
+   ============================================ */
+
+/* ============================================
+   13.1 RESPONSIVIDADE - DESKTOP GRANDE (1200px+)
+   Aumenta um pouco a coluna de leitura sem esticar
+   demais a linha de texto.
+   ============================================ */
+
+@media (min-width: 1200px) {
+
+     .wiki-layout {
+          grid-template-columns: 280px 1fr;
+          gap: 40px;
+     }
+
+     .md-body {
+          max-width: 740px;
+          font-size: 1.08rem;
+     }
+}
+
+/* ============================================
+   13.2 RESPONSIVIDADE - TABLET GRANDE / DESKTOP PEQUENO (900px–1199px)
+   Faixa intermediária: a sidebar de 260px fica um pouco
+   apertada perto do texto nessa largura, então reduz e
+   ganha um pouco mais de gap.
+   ============================================ */
+
+@media (min-width: 900px) and (max-width: 1199px) {
+
+     .wiki-layout {
+          grid-template-columns: 230px 1fr;
+          gap: 24px;
+     }
+
+     .md-body {
+          max-width: 660px;
+     }
+}
+
+/* ============================================
+   14. RESPONSIVIDADE - TABLET (768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+
+     body {
+          padding: 16px;
+          align-items: flex-start;
+          padding-top: 32px;
+     }
+
+     .card {
+          padding: 24px;
+     }
+
+     .card>h1,
+     #login>h1,
+     #curso>h1 {
+          font-size: 1.6rem;
+     }
+
+     .subtitle {
+          font-size: 0.95rem;
+     }
+
+     .wiki-layout {
+          grid-template-columns: 1fr;
+     }
+
+     .wiki-sidebar {
+          position: static;
+          max-height: none;
+     }
+}
+
+/* ============================================
+   15. RESPONSIVIDADE - MOBILE (480px)
+   ============================================ */
+
+@media (max-width: 480px) {
+
+     body {
+          padding: 12px;
+          padding-top: 24px;
+     }
+
+     .card {
+          padding: 20px;
+     }
+
+     .card>h1,
+     #login>h1,
+     #curso>h1 {
+          font-size: 1.4rem;
+     }
+
+     .subtitle {
+          font-size: 0.9rem;
+     }
+
+     input,
+     button {
+          padding: 12px;
+          font-size: 0.95rem;
+     }
+
+     .footer {
+          font-size: 0.8rem;
+     }
+
+     .md-body pre {
+          padding: 14px;
+     }
+
+     .wiki-logo {
+          width: 44px;
+          height: 44px;
+     }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+     <link rel="icon" href="/assets/lock.png" type="image/png">
+     <meta charset="UTF-8">
+     <title>SVault</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description"
+          content="Clube premium de conteúdo exclusivo para devs e estudantes. Wiki de guias, arquiteturas e boilerplates.">
+     <meta name="keywords"
+          content="desenvolvimento web, programação, wiki premium, react, javascript, python, typescript, comunidade dev">
+
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+     <div class="card">
+
+          <!-- ========== TELA DE LOGIN ========== -->
+          <div id="login">
+               <h1>
+                    <img src="assets/solid.jpg"
+                         style="vertical-align: middle; border-radius: 50%; width: 145px; height: 145px;"
+                         alt="Skill Vault Logo">
+               </h1>
+
+               <input type="password" id="senha" placeholder="" autocomplete="off">
+               <button onclick="verificar()">Acessar →</button>
+
+               <div class="error" id="erro">Código de acesso inválido.</div>
+
+               <div
+                    style="margin: 24px 0; padding: 20px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 2px solid rgba(56, 189, 248, 0.3);">
+                    <h3 style="margin: 0 0 12px 0; color: white; font-size: 1.2rem;">
+                         SKILL VAULT
+                    </h3>
+                    <ul
+                         style="font-size: 18px; margin: 0 0 16px 0; padding-left: 1%; line-height: 1.8; color: #d1d5db;">
+                         <p>
+                              SVault é um arquivo técnico voltado para desenvolvedores e criadores de
+                              conteúdo digital: guias, projetos, templates, boilerplates, AI prompts e documentação
+                              renderizados
+                              diretamente aqui. Foco em aplicações web JavaScript e automações
+                              Python.
+                         </p>
+
+
+
+
+
+                         <p style="padding-top: 35px;">&copy; Desenvolvido por Guilherme Ribeiro<br>
+                              <a style="color: lightblue;" href="https://linkedin.com/in/gribeirodev">
+                                   linkedin.com/in/gribeirodev</a><br>
+                              <a style="color: lightblue;" href="https://github.com/liberstack">
+                                   github.com/liberstack</a><br>
+                              <a style="color: lightblue;" href="mailto:topverbs@gmail.com">topverbs@gmail.com</a>
+                         </p>
+                    </ul>
+               </div>
+
+               <div class="footer">
+                    <p style="padding-top: 3%;">
+                         <a style="color: gray;" href="./privacidade-termos.html">privacidade&termos</a>
+                    </p>
+               </div>
+          </div>
+
+          <!-- ========== ÁREA AUTENTICADA — WIKI + DOWNLOADS ========== -->
+          <div id="curso" class="content" style="display: none;">
+               <div class="wiki-topbar">
+                    <img src="assets/solid.jpg" class="wiki-logo" alt="Skill Vault Logo">
+                    <span class="subtitle success">Acesso liberado ✓</span>
+               </div>
+
+               <div id="wiki-layout" class="wiki-layout">
+                    <aside id="wiki-sidebar" class="wiki-sidebar"></aside>
+
+                    <section id="wiki-article" class="wiki-article">
+                         <div id="wiki-placeholder" class="wiki-placeholder">
+                              Selecione um item no menu ao lado para começar a leitura.
+                         </div>
+                         <article id="article-content" class="md-body" style="display:none;"></article>
+                    </section>
+               </div>
+
+               <!-- ========== DOWNLOADS (zip / pdf / epub) ========== -->
+               <div id="downloads-section" class="downloads-section" style="display:none;">
+                    <div class="wiki-categoria-titulo">
+                         <span class="wiki-folder-icon">📦</span>Downloads
+                    </div>
+                    <ul id="downloads-list" class="wiki-lista downloads-lista"></ul>
+               </div>
+
+               <div class="footer">
+                    <p style="padding-top: 3%;">
+                         <a style="color: gray;" href="./privacidade-termos.html">privacidade&termos</a>
+                    </p>
+               </div>
+          </div>
+
+     </div>
+
+     <script src="./js/marked.min.js"></script>
+     <script src="./js/utils.js"></script>
+     <script src="./js/app.js"></script>
+
+</body>
+
+</html>
