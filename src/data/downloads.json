@@ -1,0 +1,30 @@
+[
+  {
+    "id": "spa-kit-zip",
+    "titulo": "SPA Hash Router — arquivos",
+    "desc": "Boilerplate completo em .zip",
+    "arquivo": "spa-kit.zip",
+    "tipo": "zip"
+  },
+  {
+    "id": "auth-kit-zip",
+    "titulo": "Full Auth System — arquivos",
+    "desc": "Backend + frontend em .zip",
+    "arquivo": "auth-kit.zip",
+    "tipo": "zip"
+  },
+  {
+    "id": "landingpage-kit-zip",
+    "titulo": "Landing Page Boilerplate — arquivos",
+    "desc": "Site institucional em .zip",
+    "arquivo": "landingpage-kit.zip",
+    "tipo": "zip"
+  },
+  {
+    "id": "pandoc-ebook-guia",
+    "titulo": "Pandoc eBook Workflow — guia em PDF",
+    "desc": "Versão em PDF do guia completo",
+    "arquivo": "pandoc-ebook-workflow.pdf",
+    "tipo": "pdf"
+  }
+]

@@ -201,7 +201,7 @@ export default {
 async function loadManifest(env, request) {
   try {
     const assetUrl = new URL(request.url);
-    assetUrl.pathname = "/data/content.json";
+    assetUrl.pathname = "/src/data/content.json";
     assetUrl.search = "";
     const res = await env.ASSETS.fetch(
       new Request(assetUrl.toString(), { method: "GET" }),
@@ -217,7 +217,7 @@ async function loadManifest(env, request) {
 async function loadDownloadsManifest(env, request) {
   try {
     const assetUrl = new URL(request.url);
-    assetUrl.pathname = "/data/downloads.json";
+    assetUrl.pathname = "/src/data/downloads.json";
     assetUrl.search = "";
     const res = await env.ASSETS.fetch(
       new Request(assetUrl.toString(), { method: "GET" }),

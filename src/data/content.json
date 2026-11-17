@@ -1,0 +1,76 @@
+[
+  {
+    "categoria": "Início",
+    "itens": [
+      {
+        "id": "intro",
+        "titulo": "Bem-vindo ao Skill Vault",
+        "desc": "Como usar este acervo",
+        "arquivo": "intro.md"
+      }
+    ]
+  },
+  {
+    "categoria": "Projetos & Boilerplates",
+    "itens": [
+      {
+        "id": "landingpage-kit",
+        "titulo": "Landing Page Boilerplate Kit",
+        "desc": "Site institucional e landing page em JS vanilla",
+        "arquivo": "landingpage-kit.md"
+      },
+      {
+        "id": "portfolio-kit",
+        "titulo": "Portfolio Boilerplate Kit",
+        "desc": "Site de portfólio pessoal em JS vanilla",
+        "arquivo": "portfolio-kit.md"
+      },
+      {
+        "id": "spa-kit",
+        "titulo": "Vanilla JavaScript SPA Hash Router",
+        "desc": "Roteamento client-side sem framework, via hash",
+        "arquivo": "spa-kit.md"
+      },
+      {
+        "id": "api-kit",
+        "titulo": "API Boilerplate — Node.js",
+        "desc": "Projetos que envolvem APIs gratuitas e públicas, REST APIs",
+        "arquivo": "api-kit.md"
+      },
+      {
+        "id": "auth-kit",
+        "titulo": "Full Auth System Boilerplate",
+        "desc": "Auth JS + backend Cloudflare KV",
+        "arquivo": "auth-kit.md"
+      },
+      {
+        "id": "ts-formulary-kit",
+        "titulo": "TypeScript Formulary Boilerplate",
+        "desc": "Formulário de contato em TypeScript",
+        "arquivo": "ts-formulary-kit.md"
+      }
+    ]
+  },
+  {
+    "categoria": "Guias & Workflow",
+    "itens": [
+      {
+        "id": "pandoc-ebook-workflow",
+        "titulo": "Pandoc eBook Workflow",
+        "desc": "Criando eBooks com Markdown, VSCode e Pandoc",
+        "arquivo": "pandoc-ebook-workflow.md"
+      }
+    ]
+  },
+  {
+    "categoria": "Extras/Recursos",
+    "itens": [
+      {
+        "id": "extras",
+        "titulo": "Extras",
+        "desc": "Recursos e conteúdo bônus",
+        "arquivo": "extras.md"
+      }
+    ]
+  }
+]
