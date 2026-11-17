@@ -2,65 +2,69 @@
 <html lang="pt-BR">
 
 <head>
-     <link rel="icon" href="/src/assets/lock.png" type="image/png">
      <meta charset="UTF-8">
-     <title>SVault</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Skill Vault</title>
      <meta name="description"
           content="Clube premium de conteúdo exclusivo para devs e estudantes. Wiki de guias, arquiteturas e boilerplates.">
-     <meta name="keywords"
-          content="desenvolvimento web, programação, wiki premium, react, javascript, python, typescript, comunidade dev">
 
-     <link rel="stylesheet" href="./src/styles/style.css">
+     <link rel="icon" href="src/assets/lock.png" type="image/png">
+     <link rel="stylesheet" href="src/styles/style.css">
 </head>
 
 <body>
+
+     <noscript>
+          <p style="color: white; text-align: center; padding: 24px;">
+               Este site precisa de JavaScript ativado para funcionar.
+          </p>
+     </noscript>
 
      <div class="card">
 
           <!-- ========== TELA DE LOGIN ========== -->
           <div id="login">
+               <!-- O texto do <h1> é o alt da imagem: leitores de tela leem "Skill Vault". -->
                <h1>
-                    <img src="/src/assets/solid.jpg"
-                         style="vertical-align: middle; border-radius: 50%; width: 145px; height: 145px;"
-                         alt="Skill Vault Logo">
+                    <img src="src/assets/solid.jpg" alt="Skill Vault"
+                         style="vertical-align: middle; border-radius: 50%; width: 145px; height: 145px;">
                </h1>
 
-               <input type="password" id="senha" placeholder="" autocomplete="off">
-               <button onclick="verificar()">Acessar →</button>
+               <!-- type="password": o código não fica visível na tela.
+           O app.js converte para maiúsculas e valida o formato antes de enviar. -->
+               <input type="password" id="senha" placeholder="" aria-label="Código de acesso" autocomplete="off"
+                    autocapitalize="characters" spellcheck="false">
+               <button type="button" onclick="verificar()">Acessar →</button>
 
-               <div class="error" id="erro">Código de acesso inválido.</div>
+               <!-- role="alert": leitores de tela anunciam a mensagem quando ela aparece. -->
+               <div class="error" id="erro" role="alert">Código de acesso inválido.</div>
 
                <div
                     style="margin: 24px 0; padding: 20px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 2px solid rgba(56, 189, 248, 0.3);">
-                    <h3 style="margin: 0 0 12px 0; color: white; font-size: 1.2rem;">
+                    <h2 style="margin: 0 0 12px 0; color: white; font-size: 1.2rem;">
                          SKILL VAULT
-                    </h3>
-                    <ul
+                    </h2>
+                    <div
                          style="font-size: 18px; margin: 0 0 16px 0; padding-left: 1%; line-height: 1.8; color: #d1d5db;">
                          <p>
-                              SVault é um arquivo técnico voltado para desenvolvedores e criadores de
-                              conteúdo digital: guias, projetos, templates, boilerplates, AI prompts e documentação
-                              renderizados
-                              diretamente aqui. Foco em aplicações web JavaScript e automações
-                              Python.
+                              Skill Vault é um arquivo técnico voltado para desenvolvedores e criadores de conteúdo
+                              digital: guias,
+                              projetos, templates, boilerplates, AI prompts e documentação renderizados diretamente
+                              aqui. Foco em
+                              aplicações web JavaScript e automações Python.
                          </p>
 
-
-
-
-
-                         <p style="padding-top: 35px;">&copy; Desenvolvido por Guilherme Ribeiro<br>
-
-                              <a style="color: lightblue;" href="https://github.com/liberstack">
-                                   github.com/liberstack</a>
+                         <p style="padding-top: 35px;">
+                              &copy; Desenvolvido por Guilherme Ribeiro<br>
+                              <a style="color: lightblue;"
+                                   href="https://github.com/liberstack">github.com/liberstack</a>
                          </p>
-                    </ul>
+                    </div>
                </div>
 
                <div class="footer">
                     <p style="padding-top: 3%;">
-                         <a style="color: gray;" href="/src/pages/privacidade-termos.html">privacidade&termos</a>
+                         <a style="color: gray;" href="src/pages/privacidade-termos.html">privacidade &amp; termos</a>
                     </p>
                </div>
           </div>
@@ -68,23 +72,24 @@
           <!-- ========== ÁREA AUTENTICADA — WIKI + DOWNLOADS ========== -->
           <div id="curso" class="content" style="display: none;">
                <div class="wiki-topbar">
-                    <img src="/src/assets/solid.jpg" class="wiki-logo" alt="Skill Vault Logo">
+                    <img src="src/assets/solid.jpg" class="wiki-logo" alt="Skill Vault">
                     <span class="subtitle success">Acesso liberado ✓</span>
+                    <!-- O botão "Sair" é inserido aqui pelo app.js (ensureLogoutButton). -->
                </div>
 
                <div id="wiki-layout" class="wiki-layout">
-                    <aside id="wiki-sidebar" class="wiki-sidebar"></aside>
+                    <aside id="wiki-sidebar" class="wiki-sidebar" aria-label="Conteúdo"></aside>
 
                     <section id="wiki-article" class="wiki-article">
                          <div id="wiki-placeholder" class="wiki-placeholder">
                               Selecione um item no menu ao lado para começar a leitura.
                          </div>
-                         <article id="article-content" class="md-body" style="display:none;"></article>
+                         <article id="article-content" class="md-body" style="display: none;"></article>
                     </section>
                </div>
 
                <!-- ========== DOWNLOADS (zip / pdf / epub) ========== -->
-               <div id="downloads-section" class="downloads-section" style="display:none;">
+               <div id="downloads-section" class="downloads-section" style="display: none;">
                     <div class="wiki-categoria-titulo">
                          <span class="wiki-folder-icon">📦</span>Downloads
                     </div>
@@ -93,16 +98,20 @@
 
                <div class="footer">
                     <p style="padding-top: 3%;">
-                         <a style="color: gray;" href="/src/pages/privacidade-termos.html">privacidade&termos</a>
+                         <a style="color: gray;" href="src/pages/privacidade-termos.html">privacidade &amp; termos</a>
                     </p>
                </div>
           </div>
 
      </div>
 
-     <script src="/src/scripts/marked.min.js"></script>
-     <script src="/src/scripts/utils.js"></script>
-     <script src="/src/scripts/app.js"></script>
+     <!-- Ordem importa: o app.js usa funções do utils.js e do marked. -->
+     <script src="src/scripts/marked.min.js"></script>
+     <!-- Opcional (recomendado): sanitiza o HTML gerado pelo Markdown.
+       Baixe o DOMPurify para src/scripts/purify.min.js e descomente:
+  <script src="src/scripts/purify.min.js"></script> -->
+     <script src="src/scripts/utils.js"></script>
+     <script src="src/scripts/app.js"></script>
 
 </body>
 

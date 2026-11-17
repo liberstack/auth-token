@@ -152,6 +152,19 @@ Data inválida **nega** o acesso. Sem `expiration_date`, o token não expira.
 
 ---
 
+## Onde hospedar
+
+| Hospedagem | Funciona? |
+|---|---|
+| **Cloudflare Pages** (com `_worker.js` e KV) | ✅ Sistema completo: login, artigos, downloads |
+| **GitHub Pages** | ⚠️ Só a parte visual. O GitHub serve apenas arquivos estáticos e **não executa o Worker**, então `/api/auth` não existe e nenhum login funciona. |
+
+Os caminhos no HTML são **relativos** (`src/styles/style.css`, e não `/src/styles/style.css`). Assim a página carrega tanto na raiz de um domínio quanto em um subcaminho, como `usuario.github.io/auth-token/`. Caminhos que começam com `/` apontam para a raiz do domínio e quebram nesse caso (CSS e scripts dão 404).
+
+> Dica de aula: peça aos alunos para trocarem um caminho relativo por absoluto e observarem o erro 404 no console do navegador.
+
+---
+
 ## Rodando localmente
 
 ### Pré-requisitos
