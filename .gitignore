@@ -1,9 +1,4 @@
-node_modules/
-.DS_Store
-*.log
 .env
-.env.local
-content/
-downloads/
-data/content.json
-data/downloads.json
+.env.*
+.dev.vars
+.wrangler/
